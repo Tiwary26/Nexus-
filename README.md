@@ -253,7 +253,7 @@ The project is intended as a practical exploration of production-oriented system
 B.Tech — Computer Science and Engineering
 
 - GitHub: [Tiwary26](https://github.com/Tiwary26)
-- LinkedIn: Add your LinkedIn profile URL here.
+- LinkedIn: https://www.linkedin.com/in/sakshi-tiwary22/
 
 ## 📄 License
 
