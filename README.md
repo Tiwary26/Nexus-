@@ -254,6 +254,7 @@ B.Tech — Computer Science and Engineering
 
 - GitHub: [Tiwary26](https://github.com/Tiwary26)
 - LinkedIn: https://www.linkedin.com/in/sakshi-tiwary22/
+- Email: sakshikumaritiwari22@gmail.com
 
 ## 📄 License
 
