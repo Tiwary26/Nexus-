@@ -245,6 +245,229 @@ Roadmap items should be checked off only when the corresponding functionality is
 The objective of NEXUS is to explore how software engineering, distributed systems, cloud technologies, optimization algorithms, and artificial intelligence can work together to improve infrastructure observability and operational efficiency.
 
 The project is intended as a practical exploration of production-oriented system design, with emphasis on modular architecture, scalable event processing, intelligent optimization, and reliable operations.
+---
+
+## 🧩 Core Engineering Concepts
+
+NEXUS combines several software engineering concepts to support infrastructure monitoring and resource optimization.
+
+### 1. Event-Driven Architecture
+
+The platform uses an event-driven design to separate event producers from event consumers.
+
+Apache Kafka can act as the messaging layer between services, allowing operational events to be processed asynchronously.
+
+**Key benefits:**
+- Reduced coupling between services
+- Asynchronous event processing
+- Independent scaling of consumers
+- Improved handling of event-driven workloads
+
+### 2. Graph-Based Conflict Detection
+
+Graph-based modeling represents resources, tasks, and dependencies as interconnected nodes and edges.
+
+This representation can help identify relationships that may result in scheduling conflicts.
+
+**Potential applications:**
+- Dependency validation
+- Resource conflict identification
+- Scheduling constraint evaluation
+- Relationship analysis
+
+### 3. Intelligent Resource Scheduling
+
+The scheduling engine evaluates candidate assignments against resource availability and defined operational constraints.
+
+A scheduling workflow can include:
+1. Collecting scheduling requests.
+2. Validating resource availability.
+3. Evaluating dependencies and constraints.
+4. Detecting conflicting assignments.
+5. Selecting a valid assignment.
+6. Persisting the scheduling result.
+
+The final scheduling strategy depends on the algorithm implemented in the application.
+
+## ⚡ Performance Engineering
+
+Performance is evaluated through repeatable experiments rather than assumptions.
+
+### Key Performance Indicators
+
+| Metric | Description |
+|---|---|
+| Throughput | Number of events processed per second |
+| Average Latency | Average time required to process a request |
+| P95 Latency | Time within which 95% of requests complete |
+| Error Rate | Percentage of requests that fail |
+| Conflict Detection Time | Time taken to identify scheduling conflicts |
+| Scheduling Success Rate | Percentage of valid scheduling requests successfully processed |
+
+### Benchmarking Methodology
+
+To evaluate performance consistently:
+
+1. Establish a baseline using a fixed workload.
+2. Record the initial performance metrics.
+3. Apply one optimization at a time.
+4. Repeat the same workload.
+5. Compare the results under equivalent conditions.
+6. Document the environment and test configuration.
+
+For latency reduction:
+
+`Improvement (%) = ((Baseline Latency - New Latency) / Baseline Latency) × 100`
+
+For throughput improvement:
+
+`Improvement (%) = ((New Throughput - Baseline Throughput) / Baseline Throughput) × 100`
+
+Only publish measured results that can be reproduced.
+
+## 🔄 Data Flow
+
+A typical event-processing workflow can follow this sequence:
+
+```text
+Operational Event
+       |
+       v
+Spring Boot REST API
+       |
+       v
+Event Validation
+       |
+       v
+Apache Kafka
+       |
+       v
+Event Consumer / Processing Service
+       |
+       v
+Conflict Detection Engine
+       |
+       v
+Constraint-Aware Scheduler
+       |
+       v
+PostgreSQL Database
+       |
+       v
+React Dashboard
+```
+
+Redis may be used for caching frequently accessed information.
+
+The actual flow depends on how the application implements event publishing, processing, persistence, and frontend updates.
+
+## 🛡️ Reliability and Fault Handling
+
+A production-oriented implementation should consider the following reliability mechanisms:
+
+- **Input Validation:** Reject malformed or incomplete requests.
+- **Error Handling:** Return meaningful API errors.
+- **Retry Policies:** Retry eligible transient failures with bounded attempts.
+- **Idempotency:** Prevent duplicate processing where repeated requests must have the same effect.
+- **Database Transactions:** Maintain consistency across related database operations.
+- **Observability:** Record structured logs and relevant application metrics.
+- **Message Recovery:** Handle failed event processing and message redelivery appropriately.
+
+These mechanisms should be documented as implemented only after they have been developed and tested.
+
+## 📊 Observability and Monitoring
+
+Observability helps developers understand application behavior and diagnose operational issues.
+
+Potential monitoring capabilities include:
+
+- API response times
+- Event-processing throughput
+- Kafka consumer lag
+- Database query latency
+- Redis cache performance
+- Scheduling failures
+- Conflict detection statistics
+- Application error logs
+
+Monitoring tools can be added according to project requirements.
+
+## 🗺️ Development Roadmap
+
+### Phase 1 — Core Platform
+- [ ] React dashboard
+- [ ] Spring Boot REST APIs
+- [ ] PostgreSQL integration
+- [ ] Resource management
+
+### Phase 2 — Event Processing
+- [ ] Kafka event publishing
+- [ ] Asynchronous event consumers
+- [ ] Event validation and error handling
+
+### Phase 3 — Optimization Engine
+- [ ] Graph-based conflict detection
+- [ ] Constraint-aware scheduling
+- [ ] Scheduling validation
+- [ ] Conflict reporting
+
+### Phase 4 — Production Readiness
+- [ ] Automated tests
+- [ ] Docker-based deployment
+- [ ] Performance benchmarks
+- [ ] Application monitoring
+- [ ] Security hardening
+
+Update the checklist as each feature is completed.
+
+## 🧪 Testing Strategy
+
+The testing strategy should cover multiple levels.
+
+**Unit Testing**
+- Scheduling algorithm correctness
+- Conflict detection logic
+- Input validation
+- Business rule enforcement
+
+**Integration Testing**
+- Backend and PostgreSQL integration
+- Kafka producer-consumer communication
+- Redis integration
+- REST API behavior
+
+**End-to-End Testing**
+- Event submission through the frontend
+- Resource conflict visualization
+- Scheduling request workflows
+- Error handling and user feedback
+
+**Load Testing**
+- Concurrent API requests
+- High-volume event processing
+- Scheduling under increasing workloads
+- Latency and error-rate measurement
+
+## 📚 Engineering Principles
+
+NEXUS aims to follow these engineering principles:
+
+- Separation of concerns
+- Modular service design
+- RESTful API conventions
+- Data integrity
+- Reproducible performance testing
+- Secure configuration management
+- Automated testing
+- Clear technical documentation
+
+## 🔭 Long-Term Vision
+
+NEXUS can evolve into an infrastructure optimization platform that combines real-time monitoring, dependency-aware scheduling, operational analytics, and intelligent resource allocation.
+
+Potential future directions include predictive resource planning, optimization algorithms, distributed tracing, and cloud-native deployment.
+
+The long-term objective is to build a system that makes infrastructure operations more observable, reliable, and efficient.
 
 ## 👩‍💻 Author
 
@@ -256,9 +479,6 @@ B.Tech — Computer Science and Engineering
 - LinkedIn: https://www.linkedin.com/in/sakshi-tiwary22/
 - Email: sakshikumaritiwari22@gmail.com
 
-## 📄 License
-
-Choose a license appropriate for your project and add the corresponding `LICENSE` file before claiming that the repository is distributed under that license.
 
 ---
 
